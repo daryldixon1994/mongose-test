@@ -103,10 +103,7 @@ app.put("/addFood/:id", async (req, res) => {
 
 app.get("/persons", async (req, res) => {
   try {
-    let data = await Person.find()
-      .sort({ age: "desc" })
-      .limit(2)
-      .select("-favoriteFoods -name");
+    let data = await Person.find().sort({ age: "desc" });
     res.status(200).json({ status: true, data });
   } catch (error) {
     if (error) throw error;
