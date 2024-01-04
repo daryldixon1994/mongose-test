@@ -5,6 +5,7 @@ require("dotenv").config();
 const Person = require("./models/Person");
 const DBUSER = process.env.DBUSER;
 const DBPWD = process.env.DBPWD;
+const PORT = process.env.PORT || 5000;
 app.use(express.json());
 mongoose
   .connect(
@@ -158,7 +159,7 @@ app.delete("/deletePerson/:id", async (req, res) => {
   }
 });
 
-app.listen(5000, (err) => {
+app.listen(PORT, (err) => {
   if (err) throw err;
-  console.log("server is up and running on port 5000");
+  console.log(`server is up and running on port ${PORT}`);
 });
